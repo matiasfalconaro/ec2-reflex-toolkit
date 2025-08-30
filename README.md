@@ -50,7 +50,7 @@ PaaS platforms often break Reflex apps due to opaque proxy and security policies
 | Rollback                    | Redeploy to previous tag and restore Caddyfile if applicable    |
 
 # Architecture
-![Arquitectura](infra/docs/architecture_1.4.0.svg)
+![Architecture](infra/docs/architecture.svg)
 
 # Prerequisites - AWS
 
