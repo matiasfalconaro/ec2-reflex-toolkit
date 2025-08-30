@@ -1,0 +1,12 @@
+# SSH via journald
+journald:
+  - filters:
+      - _SYSTEMD_UNIT=sshd.service
+    labels:
+      type: syslog
+---
+# Caddy access log (JSON)
+filenames:
+  - /var/log/caddy/access.json
+labels:
+  type: caddy

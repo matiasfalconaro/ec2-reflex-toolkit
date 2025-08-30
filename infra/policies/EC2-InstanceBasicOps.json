@@ -1,0 +1,28 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BasicInstanceManagement",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:RebootInstances",
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeTags",
+                "ec2:MonitorInstances",
+                "ec2:UnmonitorInstances"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "DenyIMDSChanges",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:ModifyInstanceMetadataOptions"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

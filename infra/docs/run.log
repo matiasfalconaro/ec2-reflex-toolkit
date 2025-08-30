@@ -1,0 +1,739 @@
+sh-5.2$ sudo dnf -y update
+    Amazon Linux 2023 Kernel Livepatch repository                                                                                                                168 kB/s |  19 kB     00:00
+    Dependencies resolved.
+    Nothing to do.
+    Complete!
+sh-5.2$ sudo su - ec2-user
+[ec2-user@ip-000-00-0-0 ~]$ sudo dnf -y install git
+    Last metadata expiration check: 0:01:43 ago on Fri Aug 29 05:32:25 2025.
+    Dependencies resolved.
+    =============================================================================================================================================================================================
+    Package                                        Architecture                         Version                                                 Repository                                 Size
+    =============================================================================================================================================================================================
+    Installing:
+    git                                            x86_64                               2.50.1-1.amzn2023.0.1                                   amazonlinux                                53 k
+    Installing dependencies:
+    git-core                                       x86_64                               2.50.1-1.amzn2023.0.1                                   amazonlinux                               4.9 M
+    git-core-doc                                   noarch                               2.50.1-1.amzn2023.0.1                                   amazonlinux                               2.8 M
+    perl-Error                                     noarch                               1:0.17029-5.amzn2023.0.2                                amazonlinux                                41 k
+    perl-File-Find                                 noarch                               1.37-477.amzn2023.0.7                                   amazonlinux                                25 k
+    perl-Git                                       noarch                               2.50.1-1.amzn2023.0.1                                   amazonlinux                                41 k
+    perl-TermReadKey                               x86_64                               2.38-9.amzn2023.0.2                                     amazonlinux                                36 k
+    perl-lib                                       x86_64                               0.65-477.amzn2023.0.7                                   amazonlinux                                15 k
+
+    Transaction Summary
+    =============================================================================================================================================================================================
+    Install  8 Packages
+
+    Total download size: 7.9 M
+    Installed size: 41 M
+    Downloading Packages:
+    (1/8): git-2.50.1-1.amzn2023.0.1.x86_64.rpm                                                                                                                  1.3 MB/s |  53 kB     00:00
+    (2/8): git-core-doc-2.50.1-1.amzn2023.0.1.noarch.rpm                                                                                                          40 MB/s | 2.8 MB     00:00
+    (3/8): perl-Error-0.17029-5.amzn2023.0.2.noarch.rpm                                                                                                          1.1 MB/s |  41 kB     00:00
+    (4/8): perl-File-Find-1.37-477.amzn2023.0.7.noarch.rpm                                                                                                       1.3 MB/s |  25 kB     00:00
+    (5/8): perl-Git-2.50.1-1.amzn2023.0.1.noarch.rpm                                                                                                             1.9 MB/s |  41 kB     00:00
+    (6/8): git-core-2.50.1-1.amzn2023.0.1.x86_64.rpm                                                                                                              35 MB/s | 4.9 MB     00:00
+    (7/8): perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64.rpm                                                                                                       717 kB/s |  36 kB     00:00
+    (8/8): perl-lib-0.65-477.amzn2023.0.7.x86_64.rpm                                                                                                             303 kB/s |  15 kB     00:00
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Total                                                                                                                                                         45 MB/s | 7.9 MB     00:00
+    Running transaction check
+    Transaction check succeeded.
+    Running transaction test
+    Transaction test succeeded.
+    Running transaction
+    Preparing        :                                                                                                                                                                     1/1
+    Installing       : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                                               1/8
+    Installing       : git-core-doc-2.50.1-1.amzn2023.0.1.noarch                                                                                                                           2/8
+    Installing       : perl-lib-0.65-477.amzn2023.0.7.x86_64                                                                                                                               3/8
+    Installing       : perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64                                                                                                                         4/8
+    Installing       : perl-File-Find-1.37-477.amzn2023.0.7.noarch                                                                                                                         5/8
+    Installing       : perl-Error-1:0.17029-5.amzn2023.0.2.noarch                                                                                                                          6/8
+    Installing       : perl-Git-2.50.1-1.amzn2023.0.1.noarch                                                                                                                               7/8
+    Installing       : git-2.50.1-1.amzn2023.0.1.x86_64                                                                                                                                    8/8
+    Running scriptlet: git-2.50.1-1.amzn2023.0.1.x86_64                                                                                                                                    8/8
+    Verifying        : git-2.50.1-1.amzn2023.0.1.x86_64                                                                                                                                    1/8
+    Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                                               2/8
+    Verifying        : git-core-doc-2.50.1-1.amzn2023.0.1.noarch                                                                                                                           3/8
+    Verifying        : perl-Error-1:0.17029-5.amzn2023.0.2.noarch                                                                                                                          4/8
+    Verifying        : perl-File-Find-1.37-477.amzn2023.0.7.noarch                                                                                                                         5/8
+    Verifying        : perl-Git-2.50.1-1.amzn2023.0.1.noarch                                                                                                                               6/8
+    Verifying        : perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64                                                                                                                         7/8
+    Verifying        : perl-lib-0.65-477.amzn2023.0.7.x86_64                                                                                                                               8/8
+
+    Installed:
+    git-2.50.1-1.amzn2023.0.1.x86_64                git-core-2.50.1-1.amzn2023.0.1.x86_64     git-core-doc-2.50.1-1.amzn2023.0.1.noarch       perl-Error-1:0.17029-5.amzn2023.0.2.noarch
+    perl-File-Find-1.37-477.amzn2023.0.7.noarch     perl-Git-2.50.1-1.amzn2023.0.1.noarch     perl-TermReadKey-2.38-9.amzn2023.0.2.x86_64     perl-lib-0.65-477.amzn2023.0.7.x86_64
+
+    Complete!
+[ec2-user@ip-000-00-0-0 ~]$ git clone https://github.com/matiasfalconaro/ec2-reflex-toolkit.git
+    Cloning into 'ec2-reflex-toolkit'...
+    remote: Enumerating objects: 481, done.
+    remote: Counting objects: 100% (246/246), done.
+    remote: Compressing objects: 100% (146/146), done.
+    remote: Total 481 (delta 172), reused 167 (delta 98), pack-reused 235 (from 1)
+    Receiving objects: 100% (481/481), 535.83 KiB | 14.48 MiB/s, done.
+    Resolving deltas: 100% (276/276), done.
+[ec2-user@ip-000-00-0-0 ~]$ cd ec2-reflex-toolkit
+[ec2-user@ip-000-00-0-0 ec2-reflex-toolkit]$ cp run.local.env.template .run.local.env && nano .run.local.env
+[ec2-user@ip-000-00-0-0 ec2-reflex-toolkit]$ chmod +x run.sh infra/scripts/*.sh
+[ec2-user@ip-000-00-0-0 ec2-reflex-toolkit]$ sudo ./run.sh
+    [INFO] Loading config from /home/ec2-user/ec2-reflex-toolkit/.run.local.env
+
+    [INFO] Bootstrap EC2 (Docker, Caddy bin, usuario, unit)
+    Updating system packages...
+    Last metadata expiration check: 0:03:47 ago on Fri Aug 29 05:32:25 2025.
+    Dependencies resolved.
+    Nothing to do.
+    Complete!
+    Installing Docker...
+    Last metadata expiration check: 0:03:48 ago on Fri Aug 29 05:32:25 2025.
+    Dependencies resolved.
+    =============================================================================================================================================================================================
+    Package                                             Architecture                        Version                                              Repository                                Size
+    =============================================================================================================================================================================================
+    Installing:
+    docker                                              x86_64                              25.0.8-1.amzn2023.0.5                                amazonlinux                               46 M
+    Installing dependencies:
+    container-selinux                                   noarch                              3:2.233.0-1.amzn2023                                 amazonlinux                               55 k
+    containerd                                          x86_64                              2.0.5-1.amzn2023.0.2                                 amazonlinux                               26 M
+    iptables-libs                                       x86_64                              1.8.8-3.amzn2023.0.2                                 amazonlinux                              401 k
+    iptables-nft                                        x86_64                              1.8.8-3.amzn2023.0.2                                 amazonlinux                              183 k
+    libcgroup                                           x86_64                              3.0-1.amzn2023.0.1                                   amazonlinux                               75 k
+    libnetfilter_conntrack                              x86_64                              1.0.8-2.amzn2023.0.2                                 amazonlinux                               58 k
+    libnfnetlink                                        x86_64                              1.0.1-19.amzn2023.0.2                                amazonlinux                               30 k
+    libnftnl                                            x86_64                              1.2.2-2.amzn2023.0.2                                 amazonlinux                               84 k
+    pigz                                                x86_64                              2.5-1.amzn2023.0.3                                   amazonlinux                               83 k
+    runc                                                x86_64                              1.2.6-1.amzn2023.0.1                                 amazonlinux                              3.7 M
+
+    Transaction Summary
+    =============================================================================================================================================================================================
+    Install  11 Packages
+
+    Total download size: 77 M
+    Installed size: 292 M
+    Downloading Packages:
+    (1/11): container-selinux-2.233.0-1.amzn2023.noarch.rpm                                                                                                      1.3 MB/s |  55 kB     00:00
+    (2/11): iptables-libs-1.8.8-3.amzn2023.0.2.x86_64.rpm                                                                                                        9.0 MB/s | 401 kB     00:00
+    (3/11): iptables-nft-1.8.8-3.amzn2023.0.2.x86_64.rpm                                                                                                         7.5 MB/s | 183 kB     00:00
+    (4/11): libcgroup-3.0-1.amzn2023.0.1.x86_64.rpm                                                                                                              2.9 MB/s |  75 kB     00:00
+    (5/11): libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64.rpm                                                                                               2.6 MB/s |  58 kB     00:00
+    (6/11): libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64.rpm                                                                                                        1.3 MB/s |  30 kB     00:00
+    (7/11): libnftnl-1.2.2-2.amzn2023.0.2.x86_64.rpm                                                                                                             3.1 MB/s |  84 kB     00:00
+    (8/11): pigz-2.5-1.amzn2023.0.3.x86_64.rpm                                                                                                                   3.1 MB/s |  83 kB     00:00
+    (9/11): runc-1.2.6-1.amzn2023.0.1.x86_64.rpm                                                                                                                  33 MB/s | 3.7 MB     00:00
+    (10/11): containerd-2.0.5-1.amzn2023.0.2.x86_64.rpm                                                                                                           38 MB/s |  26 MB     00:00
+    (11/11): docker-25.0.8-1.amzn2023.0.5.x86_64.rpm                                                                                                              48 MB/s |  46 MB     00:00
+    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Total                                                                                                                                                         78 MB/s |  77 MB     00:00
+    Running transaction check
+    Transaction check succeeded.
+    Running transaction test
+    Transaction test succeeded.
+    Running transaction
+    Preparing        :                                                                                                                                                                     1/1
+    Installing       : runc-1.2.6-1.amzn2023.0.1.x86_64                                                                                                                                   1/11
+    Installing       : containerd-2.0.5-1.amzn2023.0.2.x86_64                                                                                                                             2/11
+    Running scriptlet: containerd-2.0.5-1.amzn2023.0.2.x86_64                                                                                                                             2/11
+    Installing       : pigz-2.5-1.amzn2023.0.3.x86_64                                                                                                                                     3/11
+    Installing       : libnftnl-1.2.2-2.amzn2023.0.2.x86_64                                                                                                                               4/11
+    Installing       : libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64                                                                                                                          5/11
+    Installing       : libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64                                                                                                                 6/11
+    Installing       : iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                                                                                                                          7/11
+    Installing       : iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                                                           8/11
+    Running scriptlet: iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                                                           8/11
+    Installing       : libcgroup-3.0-1.amzn2023.0.1.x86_64                                                                                                                                9/11
+    Running scriptlet: container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                                                     10/11
+    Installing       : container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                                                     10/11
+    Running scriptlet: container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                                                     10/11
+    Running scriptlet: docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                                               11/11
+    Installing       : docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                                               11/11
+    Running scriptlet: docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                                               11/11
+    Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /usr/lib/systemd/system/docker.socket.
+
+    Running scriptlet: container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                                                     11/11
+    Running scriptlet: docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                                               11/11
+    Verifying        : container-selinux-3:2.233.0-1.amzn2023.noarch                                                                                                                      1/11
+    Verifying        : containerd-2.0.5-1.amzn2023.0.2.x86_64                                                                                                                             2/11
+    Verifying        : docker-25.0.8-1.amzn2023.0.5.x86_64                                                                                                                                3/11
+    Verifying        : iptables-libs-1.8.8-3.amzn2023.0.2.x86_64                                                                                                                          4/11
+    Verifying        : iptables-nft-1.8.8-3.amzn2023.0.2.x86_64                                                                                                                           5/11
+    Verifying        : libcgroup-3.0-1.amzn2023.0.1.x86_64                                                                                                                                6/11
+    Verifying        : libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64                                                                                                                 7/11
+    Verifying        : libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64                                                                                                                          8/11
+    Verifying        : libnftnl-1.2.2-2.amzn2023.0.2.x86_64                                                                                                                               9/11
+    Verifying        : pigz-2.5-1.amzn2023.0.3.x86_64                                                                                                                                    10/11
+    Verifying        : runc-1.2.6-1.amzn2023.0.1.x86_64                                                                                                                                  11/11
+
+    Installed:
+    container-selinux-3:2.233.0-1.amzn2023.noarch   containerd-2.0.5-1.amzn2023.0.2.x86_64   docker-25.0.8-1.amzn2023.0.5.x86_64                  iptables-libs-1.8.8-3.amzn2023.0.2.x86_64
+    iptables-nft-1.8.8-3.amzn2023.0.2.x86_64        libcgroup-3.0-1.amzn2023.0.1.x86_64      libnetfilter_conntrack-1.0.8-2.amzn2023.0.2.x86_64   libnfnetlink-1.0.1-19.amzn2023.0.2.x86_64
+    libnftnl-1.2.2-2.amzn2023.0.2.x86_64            pigz-2.5-1.amzn2023.0.3.x86_64           runc-1.2.6-1.amzn2023.0.1.x86_64
+
+    Complete!
+    Enabling and starting Docker service...
+    Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /usr/lib/systemd/system/docker.service.
+    Running as root, skipping user addition to docker group
+    Downloading and installing Caddy...
+    % Total    % Received % Xferd  Average Speed Dload   Average Speed Upload    Time Total    Time Spent     Time Left    Current Speed
+    100 14.2M  100 14.2M  0        0  41.2M              0                       --:--:--      --:--:--       --:--:--     41.2M
+    LICENSE
+    README.md
+    caddy
+    Setting up Caddy user and group...
+    Setting up Caddy logging directory...
+    Configuring SELinux for Caddy logs...
+    Installing Caddy unit from /home/ec2-user/ec2-reflex-toolkit/infra/config/systemd/caddy.service
+    Configuring ACME email environment...
+    Installing Caddyfile from /home/ec2-user/ec2-reflex-toolkit/infra/config/caddy/Caddyfile
+    Backup: /etc/caddy/Caddyfile.20250829-053702.bak
+    Configuring network settings for QUIC...
+    * Applying /etc/sysctl.d/00-defaults.conf ...
+    kernel.printk = 8 4 1 7
+    kernel.panic = 5
+    net.ipv4.neigh.default.gc_thresh1 = 0
+    net.ipv6.neigh.default.gc_thresh1 = 0
+    net.ipv4.neigh.default.gc_thresh2 = 15360
+    net.ipv6.neigh.default.gc_thresh2 = 15360
+    net.ipv4.neigh.default.gc_thresh3 = 16384
+    net.ipv6.neigh.default.gc_thresh3 = 16384
+    net.ipv4.tcp_wmem = 4096 20480 4194304
+    net.ipv4.ip_default_ttl = 127
+    kernel.unprivileged_bpf_disabled = 1
+    * Applying /usr/lib/sysctl.d/10-default-yama-scope.conf ...
+    kernel.yama.ptrace_scope = 0
+    * Applying /usr/lib/sysctl.d/50-coredump.conf ...
+    kernel.core_pattern = |/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h
+    kernel.core_pipe_limit = 16
+    fs.suid_dumpable = 2
+    * Applying /usr/lib/sysctl.d/50-default.conf ...
+    kernel.sysrq = 16
+    kernel.core_uses_pid = 1
+    net.ipv4.conf.default.rp_filter = 2
+    sysctl: setting key "net.ipv4.conf.all.rp_filter": Invalid argument
+    net.ipv4.conf.default.accept_source_route = 0
+    sysctl: setting key "net.ipv4.conf.all.accept_source_route": Invalid argument
+    net.ipv4.conf.default.promote_secondaries = 1
+    sysctl: setting key "net.ipv4.conf.all.promote_secondaries": Invalid argument
+    net.ipv4.ping_group_range = 0 2147483647
+    net.core.default_qdisc = fq_codel
+    fs.protected_hardlinks = 1
+    fs.protected_symlinks = 1
+    fs.protected_regular = 1
+    fs.protected_fifos = 1
+    * Applying /usr/lib/sysctl.d/50-libkcapi-optmem_max.conf ...
+    net.core.optmem_max = 81920
+    * Applying /usr/lib/sysctl.d/50-pid-max.conf ...
+    kernel.pid_max = 4194304
+    * Applying /usr/lib/sysctl.d/60-amazon-linux-coredump.conf ...
+    fs.suid_dumpable = 0
+    * Applying /etc/sysctl.d/99-quic.conf ...
+    net.core.rmem_max = 8388608
+    net.core.wmem_max = 8388608
+    * Applying /etc/sysctl.d/99-sysctl.conf ...
+    * Applying /etc/sysctl.conf ...
+    Validating Caddy configuration...
+    2025/08/29 05:37:02.526 INFO    using config from file  {"file": "/etc/caddy/Caddyfile"}
+    2025/08/29 05:37:02.528 INFO    adapted config to JSON  {"adapter": "caddyfile"}
+    2025/08/29 05:37:02.529 INFO    http.auto_https server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS {"server_name": "srv0", "https_port": 443}
+    2025/08/29 05:37:02.529 INFO    http.auto_https enabling automatic HTTP->HTTPS redirects        {"server_name": "srv0"}
+    2025/08/29 05:37:02.530 INFO    tls.cache.maintenance   started background certificate maintenance      {"cache": "0xc0002d4200"}
+    2025/08/29 05:37:02.531 INFO    tls.cache.maintenance   stopped background certificate maintenance      {"cache": "0xc0002d4200"}
+    Valid configuration
+    Enabling and starting Caddy service...
+    Created symlink /etc/systemd/system/multi-user.target.wants/caddy.service → /etc/systemd/system/caddy.service.
+    Reloading Caddy configuration...
+    Showing recent Caddy logs:
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.1967463,"logger":"http.auto_https","msg":"server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS","server_name":"srv0","https_port":443}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.1968317,"logger":"http.auto_https","msg":"enabling automatic HTTP->HTTPS redirects","server_name":"srv0"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.1975935,"logger":"http","msg":"enabling HTTP/3 listener","addr":":443"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.1979945,"logger":"http.log","msg":"server running","name":"srv0","protocols":["h1","h2","h3"]}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"warn","ts":1756445823.2027817,"logger":"http","msg":"HTTP/2 skipped because it requires TLS","network":"tcp","addr":":80"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"warn","ts":1756445823.2028966,"logger":"http","msg":"HTTP/3 skipped because it requires TLS","network":"tcp","addr":":80"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.202978,"logger":"http.log","msg":"server running","name":"remaining_auto_https_redirects","protocols":["h1","h2","h3"]}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2030735,"logger":"http","msg":"enabling automatic TLS certificate management","domains":["www.example.com","example.com"]}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2036238,"msg":"autosaved config (load with --resume flag)","file":"/var/lib/caddy/.config/caddy/autosave.json"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2037306,"msg":"serving initial configuration"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.1995091,"logger":"tls.cache.maintenance","msg":"started background certificate maintenance","cache":"0xc000592b80"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2081316,"logger":"tls","msg":"cleaning storage unit","storage":"FileStorage:/var/lib/caddy/.local/share/caddy"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2107189,"logger":"tls.obtain","msg":"acquiring lock","identifier":"example.com"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2111707,"logger":"tls.obtain","msg":"acquiring lock","identifier":"www.example.com"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2123933,"logger":"tls","msg":"finished cleaning storage units"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.213117,"logger":"tls.obtain","msg":"lock acquired","identifier":"www.example.com"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2133458,"logger":"tls.obtain","msg":"obtaining certificate","identifier":"www.example.com"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2138793,"logger":"tls.issuance.acme","msg":"creating new account because no account for configured email is known to us","email":"user@example.com","ca":"https://acme-v02.api.letsencrypt.org/directory","error":"open /var/lib/caddy/.local/share/caddy/acme/acme-v02.api.letsencrypt.org-directory/users/user@example.com/user.json: no such file or directory"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2140007,"logger":"tls.issuance.acme","msg":"ACME account has empty status; registering account with ACME server","contact":["mailto:user@example.com"],"location":""}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2131987,"logger":"tls.obtain","msg":"lock acquired","identifier":"example.com"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2145245,"logger":"tls.obtain","msg":"obtaining certificate","identifier":"example.com"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2150402,"logger":"tls.issuance.acme","msg":"creating new account because no account for configured email is known to us","email":"user@example.com","ca":"https://acme-v02.api.letsencrypt.org/directory","error":"open /var/lib/caddy/.local/share/caddy/acme/acme-v02.api.letsencrypt.org-directory/users/user@example.com/user.json: no such file or directory"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2151635,"logger":"tls.issuance.acme","msg":"ACME account has empty status; registering account with ACME server","contact":["mailto:user@example.com"],"location":""}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2163827,"logger":"tls.issuance.acme","msg":"creating new account because no account for configured email is known to us","email":"user@example.com","ca":"https://acme-v02.api.letsencrypt.org/directory","error":"open /var/lib/caddy/.local/share/caddy/acme/acme-v02.api.letsencrypt.org-directory/users/user@example.com/user.json: no such file or directory"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29231]: {"level":"info","ts":1756445823.268977,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29231]: {"level":"info","ts":1756445823.2729483,"msg":"adapted config to JSON","adapter":"caddyfile"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.275807,"logger":"admin.api","msg":"received request","method":"POST","host":"localhost:2019","uri":"/load","remote_ip":"127.0.0.1","remote_port":"59054","headers":{"Accept-Encoding":["gzip"],"Content-Length":["2303"],"Content-Type":["application/json"],"Origin":["http://localhost:2019"],"User-Agent":["Go-http-client/1.1"]}}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2762077,"msg":"config is unchanged"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445823.2763028,"logger":"admin.api","msg":"load complete"}
+    Aug 29 05:37:03 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Reloaded caddy.service - Caddy Web Server.
+
+    [WARN] If this is the first time your user was added to the 'docker' group, log out and log back in.
+
+    [INFO] Hardening host with nftables (only 443 TCP/UDP)
+    Installing nftables...
+    Created symlink /etc/systemd/system/multi-user.target.wants/nftables.service → /usr/lib/systemd/system/nftables.service.
+    Backing up current rules...
+    Creating nftables rules...
+    Validating rule syntax...
+    Applying rules with rollback mechanism....
+    Configuring persistent rules...
+    Restarting related services...
+    === host/input ===
+    table inet host {
+            chain input {
+                    type filter hook input priority filter; policy drop;
+                    iif "lo" accept
+                    ct state invalid drop
+                    ip saddr @crowdsec-blacklists drop
+                    ip6 saddr @crowdsec6-blacklists drop
+                    ct state established,related accept
+                    tcp dport 443 accept
+                    udp dport 443 accept
+                    ip protocol icmp accept
+                    ip6 nexthdr ipv6-icmp accept
+            }
+    }
+    === sets crowdsec ===
+    table inet host {
+            set crowdsec-blacklists {
+                    type ipv4_addr
+                    flags interval
+            }
+    }
+    table inet host {
+            set crowdsec6-blacklists {
+                    type ipv6_addr
+                    flags interval
+            }
+    }
+    Done. Remember to open UDP 443 in the Security Group if you want HTTP/3.
+
+    [INFO] Install/Update Caddyfile and reload service
+    Backup: /etc/caddy/Caddyfile.20250829-053707.bak
+    Setting up Caddy logging directory...
+    Configuring SELinux for Caddy logs...
+    Installing and validating Caddyfile from /home/ec2-user/ec2-reflex-toolkit/infra/config/caddy/Caddyfile...
+    2025/08/29 05:37:08.922 INFO    using config from file  {"file": "/etc/caddy/Caddyfile"}
+    2025/08/29 05:37:08.926 INFO    adapted config to JSON  {"adapter": "caddyfile"}
+    2025/08/29 05:37:08.927 INFO    http.auto_https server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS {"server_name": "srv0", "https_port": 443}
+    2025/08/29 05:37:08.927 INFO    http.auto_https enabling automatic HTTP->HTTPS redirects        {"server_name": "srv0"}
+    2025/08/29 05:37:08.928 INFO    tls.cache.maintenance   started background certificate maintenance      {"cache": "0xc0003e3800"}
+    2025/08/29 05:37:08.928 INFO    tls.cache.maintenance   stopped background certificate maintenance      {"cache": "0xc0003e3800"}
+    Valid configuration
+    Reloading Caddy configuration...
+    Showing recent Caddy logs:
+    Aug 29 05:37:06 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445826.6236043,"msg":"validations succeeded; finalizing order","order":"https://acme-v02.api.letsencrypt.org/acme/order/2626245127/422625863527"}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445827.6056428,"msg":"got renewal info","names":["www.example.com"],"window_start":1761549760,"window_end":1761705210,"selected_time":1761619220,"recheck_after":1756467427.6056328,"explanation_url":""}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445827.7533722,"msg":"got renewal info","names":["example.com"],"window_start":1761549760,"window_end":1761705210,"selected_time":1761696546,"recheck_after":1756467427.7533617,"explanation_url":""}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445827.9092724,"msg":"got renewal info","names":["www.example.com"],"window_start":1761549760,"window_end":1761705210,"selected_time":1761692140,"recheck_after":1756467427.9092622,"explanation_url":""}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445827.9093513,"msg":"successfully downloaded available certificate chains","count":2,"first_url":"https://acme-v02.api.letsencrypt.org/acme/cert/00aaa0aa0000aaa0a00aa00a0a00a0a0a0a0"}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445827.917388,"logger":"tls.obtain","msg":"certificate obtained successfully","identifier":"www.example.com","issuer":"acme-v02.api.letsencrypt.org-directory"}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445827.9175198,"logger":"tls.obtain","msg":"releasing lock","identifier":"www.example.com"}
+    Aug 29 05:37:07 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"warn","ts":1756445827.9180923,"logger":"tls","msg":"stapling OCSP","error":"no OCSP stapling for [www.example.com]: no OCSP server specified in certificate","identifiers":["www.example.com"]}
+    Aug 29 05:37:08 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445828.0582433,"msg":"got renewal info","names":["example.com"],"window_start":1761549760,"window_end":1761705210,"selected_time":1761578823,"recheck_after":1756467428.0582323,"explanation_url":""}
+    Aug 29 05:37:08 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445828.0582983,"msg":"successfully downloaded available certificate chains","count":2,"first_url":"https://acme-v02.api.letsencrypt.org/acme/cert/00aaa0aa0000aaa0a00aa00a0a00a0a0a0a0"}
+    Aug 29 05:37:08 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445828.0659308,"logger":"tls.obtain","msg":"certificate obtained successfully","identifier":"example.com","issuer":"acme-v02.api.letsencrypt.org-directory"}
+    Aug 29 05:37:08 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445828.0660262,"logger":"tls.obtain","msg":"releasing lock","identifier":"example.com"}
+    Aug 29 05:37:08 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"warn","ts":1756445828.066475,"logger":"tls","msg":"stapling OCSP","error":"no OCSP stapling for [example.com]: no OCSP server specified in certificate","identifiers":["example.com"]}
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Reloading caddy.service - Caddy Web Server...
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal caddy[29663]: {"level":"info","ts":1756445829.0819564,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal caddy[29663]: {"level":"info","ts":1756445829.0857074,"msg":"adapted config to JSON","adapter":"caddyfile"}
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445829.0880618,"logger":"admin.api","msg":"received request","method":"POST","host":"localhost:2019","uri":"/load","remote_ip":"127.0.0.1","remote_port":"39518","headers":{"Accept-Encoding":["gzip"],"Content-Length":["2303"],"Content-Type":["application/json"],"Origin":["http://localhost:2019"],"User-Agent":["Go-http-client/1.1"]}}
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445829.0886781,"msg":"config is unchanged"}
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal caddy[29222]: {"level":"info","ts":1756445829.0887744,"logger":"admin.api","msg":"load complete"}
+    Aug 29 05:37:09 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Reloaded caddy.service - Caddy Web Server.
+
+    [INFO] Install/Configure CrowdSec + nftables firewall-bouncer
+
+    [INFO] Installing CrowdSec (repository and packages)
+    Detected operating system as amzn/2023.
+    Checking for curl...
+    Detected curl...
+    Downloading repository file: https://packagecloud.io/install/repositories/crowdsec/crowdsec/config_file.repo?os=rpm_any&dist=rpm_any&source=script
+    done.
+    amzn
+    Installing pygpgme to verify GPG signatures...
+    crowdsec_crowdsec-source                                                                                                                                     322  B/s | 833  B     00:02
+    crowdsec_crowdsec-source                                                                                                                                     5.3 kB/s | 3.9 kB     00:00
+    Importing GPG key 0x6E93CD0C:
+    Userid     : "https://packagecloud.io/crowdsec/crowdsec (https://packagecloud.io/docs#gpg_signing) <support@packagecloud.io>"
+    Fingerprint: 6A89 E3C2 303A 901A 8899 71D3 376E D532 6E93 CD0C
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey
+    crowdsec_crowdsec-source                                                                                                                                     3.4 kB/s | 2.4 kB     00:00
+    Importing GPG key 0xEA83274E:
+    Userid     : "Crowdsec Rpm Archive <support@crowdsec.net>"
+    Fingerprint: 781A D9A6 9D9E AB7C 6B47 73ED 02DA 1539 EA83 274E
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey/crowdsec-crowdsec-EDE2C695EC9A5A5C.pub.gpg
+    crowdsec_crowdsec-source                                                                                                                                     3.3 kB/s | 2.4 kB     00:00
+    Importing GPG key 0x145CE2F2:
+    Userid     : "Crowdsec Team <debian@crowdsec.net>"
+    Fingerprint: 79B8 CC3F 9447 2AC8 62A8 AD8D B06F 1981 145C E2F2
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey/crowdsec-crowdsec-C822EDD6B39954A1.pub.gpg
+    crowdsec_crowdsec-source                                                                                                                                     3.4 kB/s | 2.4 kB     00:00
+    Importing GPG key 0x3CDF0DB4:
+    Userid     : "Crowdsec Rpm Archive <support@crowdsec.net>"
+    Fingerprint: 9082 D8CA CBBE B0DA B218 BAB0 4C3D 386C 3CDF 0DB4
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey/crowdsec-crowdsec-FED78314A2468CCF.pub.gpg
+    crowdsec_crowdsec-source                                                                                                                                     1.1 kB/s | 3.9 kB     00:03
+    No match for argument: pygpgme
+    Error: Unable to find a match: pygpgme
+
+    WARNING:
+    The pygpgme package could not be installed. This means GPG verification is not possible for any RPM installed on your system.
+    To fix this, add a repository with pygpgme. Usually, the EPEL repository for your system will have this.
+    More information: https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F
+
+    Installing yum-utils...
+    crowdsec_crowdsec-source                                                                                                                                     1.4 kB/s | 1.8 kB     00:01
+    Package dnf-utils-4.3.0-13.amzn2023.0.5.noarch is already installed.
+    Dependencies resolved.
+    Nothing to do.
+    Complete!
+
+    WARNING:
+    The yum-utils package could not be installed. This means you may not be able to install source RPMs or use other yum features.
+
+    Generating yum cache for crowdsec...
+
+    Importing GPG key 0x6E93CD0C:
+    Userid     : "https://packagecloud.io/crowdsec/crowdsec (https://packagecloud.io/docs#gpg_signing) <support@packagecloud.io>"
+    Fingerprint: 6A89 E3C2 303A 901A 8899 71D3 376E D532 6E93 CD0C
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey
+    Importing GPG key 0xEA83274E:
+    Userid     : "Crowdsec Rpm Archive <support@crowdsec.net>"
+    Fingerprint: 781A D9A6 9D9E AB7C 6B47 73ED 02DA 1539 EA83 274E
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey/crowdsec-crowdsec-EDE2C695EC9A5A5C.pub.gpg
+    Importing GPG key 0x145CE2F2:
+    Userid     : "Crowdsec Team <debian@crowdsec.net>"
+    Fingerprint: 79B8 CC3F 9447 2AC8 62A8 AD8D B06F 1981 145C E2F2
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey/crowdsec-crowdsec-C822EDD6B39954A1.pub.gpg
+    Importing GPG key 0x3CDF0DB4:
+    Userid     : "Crowdsec Rpm Archive <support@crowdsec.net>"
+    Fingerprint: 9082 D8CA CBBE B0DA B218 BAB0 4C3D 386C 3CDF 0DB4
+    From       : https://packagecloud.io/crowdsec/crowdsec/gpgkey/crowdsec-crowdsec-FED78314A2468CCF.pub.gpg
+
+    [INFO] Preparing Caddy log directory: /var/log/caddy
+    2025/08/29 05:37:49.514 INFO    using config from file  {"file": "/etc/caddy/Caddyfile"}
+    2025/08/29 05:37:49.518 INFO    adapted config to JSON  {"adapter": "caddyfile"}
+    2025/08/29 05:37:49.520 INFO    http.auto_https server is listening only on the HTTPS port but has no TLS connection policies; adding one to enable TLS {"server_name": "srv0", "https_port": 443}
+    2025/08/29 05:37:49.520 INFO    http.auto_https enabling automatic HTTP->HTTPS redirects        {"server_name": "srv0"}
+    2025/08/29 05:37:49.521 INFO    tls.cache.maintenance   started background certificate maintenance      {"cache": "0xc000734400"}
+    2025/08/29 05:37:49.521 INFO    tls.cache.maintenance   stopped background certificate maintenance      {"cache": "0xc000734400"}
+    Valid configuration
+
+    [INFO] Waiting CrowdSec LAPI (Up to 60s)...
+
+    [WARN] LAPI is listening but the machine is not registered yet (or there is no credentials).
+    LISTEN 0      4096       127.0.0.1:8080       0.0.0.0:*    users:(("crowdsec",pid=30871,fd=14))
+    Aug 29 05:37:44 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Starting crowdsec.service - Crowdsec agent...
+    Aug 29 05:37:48 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Started crowdsec.service - Crowdsec agent.
+
+    [INFO] Registering this machine upon the LAPI...
+
+    [WARN]  /etc/crowdsec/local_api_credentials.yaml not found; backed up and new one generated.
+
+    [INFO] Using CROWDSEC_PASSWORD defined by environment.
+    INFO machine 'host-ip-000-00-0-0-0000000000' validated successfully
+    Loaded credentials from /etc/crowdsec/local_api_credentials.yaml
+    Trying to authenticate with username host-ip-000-00-0-0-0000000000 on http://127.0.0.1:8080/
+    You can successfully interact with Local API (LAPI)
+
+    [INFO] LAPI OK and machine registered.
+
+    [INFO] Creating/updating /etc/crowdsec/bouncers/crowdsec-firewall-bouncer.yaml
+
+    [INFO] Checking bouncer conectivity to LAPI (decisions stream)
+
+    [WARN] LAPI response: 403 (not autorized). Regenerating API key and inyecting it in /etc/crowdsec/bouncers/crowdsec-firewall-bouncer.yaml.
+
+    [INFO] Configuring /etc/crowdsec/acquis.yaml (sshd journald + Caddy access.json)
+
+    [INFO] Installing HTTP/Caddy collections/parsers
+    Action plan:
+    📥 download
+    collections: crowdsecurity/base-http-scenarios (1.2), crowdsecurity/caddy (0.1), crowdsecurity/http-cve (2.9)
+    contexts: crowdsecurity/http_base (0.3)
+    scenarios: crowdsecurity/CVE-2017-9841 (0.2), crowdsecurity/CVE-2019-18935 (0.2), crowdsecurity/CVE-2022-26134 (0.4), crowdsecurity/CVE-2022-35914 (0.2), crowdsecurity/CVE-2022-37042 (0.2), crowdsecurity/CVE-2022-40684 (0.3), crowdsecurity/CVE-2022-41082 (0.4), crowdsecurity/CVE-2022-41697 (0.2), crowdsecurity/CVE-2022-42889 (0.3), crowdsecurity/CVE-2022-44877 (0.3), crowdsecurity/CVE-2022-46169 (0.2), crowdsecurity/CVE-2023-22515 (0.1), crowdsecurity/CVE-2023-22518 (0.3), crowdsecurity/CVE-2023-49103 (0.3), crowdsecurity/CVE-2024-0012 (0.1), crowdsecurity/CVE-2024-38475 (0.1), crowdsecurity/CVE-2024-9474 (0.1), crowdsecurity/apache_log4j2_cve-2021-44228 (0.6), crowdsecurity/f5-big-ip-cve-2020-5902 (0.3), crowdsecurity/fortinet-cve-2018-13379 (0.3), crowdsecurity/grafana-cve-2021-43798 (0.3), crowdsecurity/http-admin-interface-probing (0.4), crowdsecurity/http-backdoors-attempts (0.6), crowdsecurity/http-bad-user-agent (1.2), crowdsecurity/http-crawl-non_statics (0.7), crowdsecurity/http-cve-2021-41773 (0.3), crowdsecurity/http-cve-2021-42013 (0.3), crowdsecurity/http-cve-probing (0.6), crowdsecurity/http-generic-bf (0.9), crowdsecurity/http-generic-test (0.2), crowdsecurity/http-open-proxy (0.5), crowdsecurity/http-path-traversal-probing (0.4), crowdsecurity/http-probing (0.4), crowdsecurity/http-sap-interface-probing (0.1), crowdsecurity/http-sensitive-files (0.4), crowdsecurity/http-sqli-probing (0.4), crowdsecurity/http-wordpress-scan (0.3), crowdsecurity/http-xss-probing (0.4), crowdsecurity/jira_cve-2021-26086 (0.3), crowdsecurity/netgear_rce (0.4), crowdsecurity/pulse-secure-sslvpn-cve-2019-11510 (0.3), crowdsecurity/spring4shell_cve-2022-22965 (0.3), crowdsecurity/thinkphp-cve-2018-20062 (0.6), crowdsecurity/vmware-cve-2022-22954 (0.3), crowdsecurity/vmware-vcenter-vmsa-2021-0027 (0.2), ltsich/http-w00tw00t (0.3)
+    parsers: crowdsecurity/caddy-logs (1.1), crowdsecurity/http-logs (1.3)
+    ✅ enable
+    collections: crowdsecurity/base-http-scenarios, crowdsecurity/caddy, crowdsecurity/http-cve
+    contexts: crowdsecurity/http_base
+    scenarios: crowdsecurity/CVE-2017-9841, crowdsecurity/CVE-2019-18935, crowdsecurity/CVE-2022-26134, crowdsecurity/CVE-2022-35914, crowdsecurity/CVE-2022-37042, crowdsecurity/CVE-2022-40684, crowdsecurity/CVE-2022-41082, crowdsecurity/CVE-2022-41697, crowdsecurity/CVE-2022-42889, crowdsecurity/CVE-2022-44877, crowdsecurity/CVE-2022-46169, crowdsecurity/CVE-2023-22515, crowdsecurity/CVE-2023-22518, crowdsecurity/CVE-2023-49103, crowdsecurity/CVE-2024-0012, crowdsecurity/CVE-2024-38475, crowdsecurity/CVE-2024-9474, crowdsecurity/apache_log4j2_cve-2021-44228, crowdsecurity/f5-big-ip-cve-2020-5902, crowdsecurity/fortinet-cve-2018-13379, crowdsecurity/grafana-cve-2021-43798, crowdsecurity/http-admin-interface-probing, crowdsecurity/http-backdoors-attempts, crowdsecurity/http-bad-user-agent, crowdsecurity/http-crawl-non_statics, crowdsecurity/http-cve-2021-41773, crowdsecurity/http-cve-2021-42013, crowdsecurity/http-cve-probing, crowdsecurity/http-generic-bf, crowdsecurity/http-generic-test, crowdsecurity/http-open-proxy, crowdsecurity/http-path-traversal-probing, crowdsecurity/http-probing, crowdsecurity/http-sap-interface-probing, crowdsecurity/http-sensitive-files, crowdsecurity/http-sqli-probing, crowdsecurity/http-wordpress-scan, crowdsecurity/http-xss-probing, crowdsecurity/jira_cve-2021-26086, crowdsecurity/netgear_rce, crowdsecurity/pulse-secure-sslvpn-cve-2019-11510, crowdsecurity/spring4shell_cve-2022-22965, crowdsecurity/thinkphp-cve-2018-20062, crowdsecurity/vmware-cve-2022-22954,crowdsecurity/vmware-vcenter-vmsa-2021-0027, ltsich/http-w00tw00t
+    parsers: crowdsecurity/caddy-logs, crowdsecurity/http-logs
+
+    downloading parsers:crowdsecurity/caddy-logs
+    downloading parsers:crowdsecurity/http-logs
+    downloading scenarios:crowdsecurity/http-crawl-non_statics
+    downloading scenarios:crowdsecurity/http-probing
+    downloading scenarios:crowdsecurity/http-bad-user-agent
+    downloading https://hub-data.crowdsec.net/web/bad_user_agents.regex.txt
+    downloading scenarios:crowdsecurity/http-path-traversal-probing
+    downloading https://hub-data.crowdsec.net/web/path_traversal.txt
+    downloading scenarios:crowdsecurity/http-sensitive-files
+    downloading https://hub-data.crowdsec.net/web/sensitive_data.txt
+    downloading scenarios:crowdsecurity/http-sqli-probing
+    downloading https://hub-data.crowdsec.net/web/sqli_probe_patterns.txt
+    downloading scenarios:crowdsecurity/http-xss-probing
+    downloading https://hub-data.crowdsec.net/web/xss_probe_patterns.txt
+    downloading scenarios:crowdsecurity/http-backdoors-attempts
+    downloading https://hub-data.crowdsec.net/web/backdoors.txt
+    downloading scenarios:ltsich/http-w00tw00t
+    downloading scenarios:crowdsecurity/http-generic-bf
+    downloading scenarios:crowdsecurity/http-open-proxy
+    downloading scenarios:crowdsecurity/http-admin-interface-probing
+    downloading https://hub-data.crowdsec.net/web/admin_interfaces.txt
+    downloading scenarios:crowdsecurity/http-wordpress-scan
+    downloading scenarios:crowdsecurity/http-cve-probing
+    downloading https://hub-data.crowdsec.net/web/trendy_cves_uris.json
+    downloading scenarios:crowdsecurity/http-sap-interface-probing
+    downloading scenarios:crowdsecurity/http-generic-test
+    downloading contexts:crowdsecurity/http_base
+    downloading scenarios:crowdsecurity/http-cve-2021-41773
+    downloading scenarios:crowdsecurity/http-cve-2021-42013
+    downloading scenarios:crowdsecurity/grafana-cve-2021-43798
+    downloading scenarios:crowdsecurity/vmware-vcenter-vmsa-2021-0027
+    downloading scenarios:crowdsecurity/fortinet-cve-2018-13379
+    downloading scenarios:crowdsecurity/pulse-secure-sslvpn-cve-2019-11510
+    downloading scenarios:crowdsecurity/f5-big-ip-cve-2020-5902
+    downloading scenarios:crowdsecurity/thinkphp-cve-2018-20062
+    downloading https://hub-data.crowdsec.net/web/thinkphp_cve_2018-20062.txt
+    downloading scenarios:crowdsecurity/apache_log4j2_cve-2021-44228
+    downloading https://hub-data.crowdsec.net/web/log4j2_cve_2021_44228.txt
+    downloading scenarios:crowdsecurity/jira_cve-2021-26086
+    downloading https://hub-data.crowdsec.net/web/jira_cve_2021-26086.txt
+    downloading scenarios:crowdsecurity/spring4shell_cve-2022-22965
+    downloading scenarios:crowdsecurity/vmware-cve-2022-22954
+    downloading scenarios:crowdsecurity/CVE-2022-37042
+    downloading scenarios:crowdsecurity/CVE-2022-41082
+    downloading scenarios:crowdsecurity/CVE-2022-35914
+    downloading scenarios:crowdsecurity/CVE-2022-40684
+    downloading scenarios:crowdsecurity/CVE-2022-26134
+    downloading scenarios:crowdsecurity/CVE-2022-42889
+    downloading scenarios:crowdsecurity/CVE-2022-41697
+    downloading scenarios:crowdsecurity/CVE-2022-46169
+    downloading scenarios:crowdsecurity/CVE-2022-44877
+    downloading scenarios:crowdsecurity/CVE-2019-18935
+    downloading scenarios:crowdsecurity/netgear_rce
+    downloading scenarios:crowdsecurity/CVE-2023-22515
+    downloading scenarios:crowdsecurity/CVE-2023-22518
+    downloading scenarios:crowdsecurity/CVE-2023-49103
+    downloading scenarios:crowdsecurity/CVE-2017-9841
+    downloading scenarios:crowdsecurity/CVE-2024-38475
+    downloading scenarios:crowdsecurity/CVE-2024-0012
+    downloading scenarios:crowdsecurity/CVE-2024-9474
+    downloading collections:crowdsecurity/http-cve
+    downloading collections:crowdsecurity/base-http-scenarios
+    downloading collections:crowdsecurity/caddy
+    enabling parsers:crowdsecurity/caddy-logs
+    enabling parsers:crowdsecurity/http-logs
+    enabling scenarios:crowdsecurity/http-crawl-non_statics
+    enabling scenarios:crowdsecurity/http-probing
+    enabling scenarios:crowdsecurity/http-bad-user-agent
+    enabling scenarios:crowdsecurity/http-path-traversal-probing
+    enabling scenarios:crowdsecurity/http-sensitive-files
+    enabling scenarios:crowdsecurity/http-sqli-probing
+    enabling scenarios:crowdsecurity/http-xss-probing
+    enabling scenarios:crowdsecurity/http-backdoors-attempts
+    enabling scenarios:ltsich/http-w00tw00t
+    enabling scenarios:crowdsecurity/http-generic-bf
+    enabling scenarios:crowdsecurity/http-open-proxy
+    enabling scenarios:crowdsecurity/http-admin-interface-probing
+    enabling scenarios:crowdsecurity/http-wordpress-scan
+    enabling scenarios:crowdsecurity/http-cve-probing
+    enabling scenarios:crowdsecurity/http-sap-interface-probing
+    enabling scenarios:crowdsecurity/http-generic-test
+    enabling contexts:crowdsecurity/http_base
+    enabling scenarios:crowdsecurity/http-cve-2021-41773
+    enabling scenarios:crowdsecurity/http-cve-2021-42013
+    enabling scenarios:crowdsecurity/grafana-cve-2021-43798
+    enabling scenarios:crowdsecurity/vmware-vcenter-vmsa-2021-0027
+    enabling scenarios:crowdsecurity/fortinet-cve-2018-13379
+    enabling scenarios:crowdsecurity/pulse-secure-sslvpn-cve-2019-11510
+    enabling scenarios:crowdsecurity/f5-big-ip-cve-2020-5902
+    enabling scenarios:crowdsecurity/thinkphp-cve-2018-20062
+    enabling scenarios:crowdsecurity/apache_log4j2_cve-2021-44228
+    enabling scenarios:crowdsecurity/jira_cve-2021-26086
+    enabling scenarios:crowdsecurity/spring4shell_cve-2022-22965
+    enabling scenarios:crowdsecurity/vmware-cve-2022-22954
+    enabling scenarios:crowdsecurity/CVE-2022-37042
+    enabling scenarios:crowdsecurity/CVE-2022-41082
+    enabling scenarios:crowdsecurity/CVE-2022-35914
+    enabling scenarios:crowdsecurity/CVE-2022-40684
+    enabling scenarios:crowdsecurity/CVE-2022-26134
+    enabling scenarios:crowdsecurity/CVE-2022-42889
+    enabling scenarios:crowdsecurity/CVE-2022-41697
+    enabling scenarios:crowdsecurity/CVE-2022-46169
+    enabling scenarios:crowdsecurity/CVE-2022-44877
+    enabling scenarios:crowdsecurity/CVE-2019-18935
+    enabling scenarios:crowdsecurity/netgear_rce
+    enabling scenarios:crowdsecurity/CVE-2023-22515
+    enabling scenarios:crowdsecurity/CVE-2023-22518
+    enabling scenarios:crowdsecurity/CVE-2023-49103
+    enabling scenarios:crowdsecurity/CVE-2017-9841
+    enabling scenarios:crowdsecurity/CVE-2024-38475
+    enabling scenarios:crowdsecurity/CVE-2024-0012
+    enabling scenarios:crowdsecurity/CVE-2024-9474
+    enabling collections:crowdsecurity/http-cve
+    enabling collections:crowdsecurity/base-http-scenarios
+    enabling collections:crowdsecurity/caddy
+
+    Run 'sudo systemctl reload crowdsec' for the new configuration to be effective.
+    Nothing to do.
+    Nothing to do.
+
+    [INFO] Checking bouncer conectivity to LAPI (decisions stream)
+
+    [INFO] LAPI OK (200). Stream accesible with  actual API key.
+
+    [INFO] Checking ingestion and decisions
+    ╭──────────────────────────────────────╮
+    │ Local API Metrics                    │
+    ├──────────────────────┬────────┬──────┤
+    │ Route                │ Method │ Hits │
+    ├──────────────────────┼────────┼──────┤
+    │ /v1/decisions/stream │ GET    │ 2    │
+    │ /v1/usage-metrics    │ POST   │ 1    │
+    │ /v1/watchers/login   │ POST   │ 1    │
+    ╰──────────────────────┴────────┴──────╯
+    ╭───────────────────────────────────────────────────────────────╮
+    │ Local API Bouncers Metrics                                    │
+    ├────────────────────────┬──────────────────────┬────────┬──────┤
+    │ Bouncer                │ Route                │ Method │ Hits │
+    ├────────────────────────┼──────────────────────┼────────┼──────┤
+    │ cs-nftables-1756445932 │ /v1/decisions/stream │ GET    │ 2    │
+    ╰────────────────────────┴──────────────────────┴────────┴──────╯
+    No active decisions
+
+    [INFO] Looking for crowdsec chains/sets in nftables
+    2:      set crowdsec-blacklists {
+    7:      set crowdsec6-blacklists {
+    16:             ip saddr @crowdsec-blacklists drop
+    17:             ip6 saddr @crowdsec6-blacklists drop
+
+    [INFO] Services status
+    ● crowdsec.service - Crowdsec agent
+        Loaded: loaded (/usr/lib/systemd/system/crowdsec.service; enabled; preset: enabled)
+        Active: active (running) since Fri 2025-08-29 05:39:11 UTC; 478ms ago
+        Process: 31723 ExecStartPre=/usr/bin/crowdsec -c /etc/crowdsec/config.yaml -t -error (code=exited, status=0/SUCCESS)
+    Main PID: 31727 (crowdsec)
+        Tasks: 7 (limit: 2319)
+        Memory: 37.1M
+            CPU: 2.860s
+        CGroup: /system.slice/crowdsec.service
+                ├─31727 /usr/bin/crowdsec -c /etc/crowdsec/config.yaml
+                └─31737 journalctl --follow -n 0 _SYSTEMD_UNIT=sshd.service
+
+    Aug 29 05:39:07 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Starting crowdsec.service - Crowdsec agent...
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Started crowdsec.service - Crowdsec agent.
+    ● crowdsec-firewall-bouncer.service - The firewall bouncer for CrowdSec
+        Loaded: loaded (/usr/lib/systemd/system/crowdsec-firewall-bouncer.service; enabled; preset: enabled)
+        Drop-In: /etc/systemd/system/crowdsec-firewall-bouncer.service.d
+                └─override.conf
+        Active: active (running) since Fri 2025-08-29 05:39:11 UTC; 226ms ago
+        Process: 31740 ExecStartPre=/usr/bin/crowdsec-firewall-bouncer -c /etc/crowdsec/bouncers/crowdsec-firewall-bouncer.yaml -t (code=exited, status=0/SUCCESS)
+        Process: 31747 ExecStartPost=/bin/sleep 0.1 (code=exited, status=0/SUCCESS)
+    Main PID: 31743 (crowdsec-firewa)
+        Tasks: 5 (limit: 2319)
+        Memory: 7.5M
+            CPU: 74ms
+        CGroup: /system.slice/crowdsec-firewall-bouncer.service
+                └─31743 /usr/bin/crowdsec-firewall-bouncer -c /etc/crowdsec/bouncers/crowdsec-firewall-bouncer.yaml
+
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31740]: time="2025-08-29T05:39:11Z" level=info msg="Shutting down backend"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31740]: time="2025-08-29T05:39:11Z" level=info msg="flushing 'crowdsec-blacklists' set in 'host' table"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31740]: time="2025-08-29T05:39:11Z" level=info msg="flushing 'crowdsec6-blacklists' set in 'host' table"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31743]: time="2025-08-29T05:39:11Z" level=info msg="Starting crowdsec-firewall-bouncer v0.0.34-rpm-pragmatic-amd64-4144555453620958398aee64253dfd90bbc1f698"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31743]: time="2025-08-29T05:39:11Z" level=info msg="backend type: nftables"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31743]: time="2025-08-29T05:39:11Z" level=info msg="nftables initiated"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31743]: time="2025-08-29T05:39:11Z" level=warning msg="lapi update interval is not defined, using defaultvalue of 10s"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31743]: time="2025-08-29T05:39:11Z" level=info msg="Using API key auth"
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal crowdsec-firewall-bouncer[31743]: time="2025-08-29T05:39:11Z" level=info msg="Processing new and deleted decisions . . ."
+    Aug 29 05:39:11 ip-000-00-0-0.sa-east-1.compute.internal systemd[1]: Started crowdsec-firewall-bouncer.service - The firewall bouncer for CrowdSec.
+
+    [INFO] Done. CrowdSec is reading sshd + Caddy and applying bans via nftables.
+    Notes:
+    - If Caddy logs to a different path, update /etc/crowdsec/acquis.yaml.
+    - Test ban: cscli decisions add -i 111-11-1-1 -t ban -d 5m
+
+    [INFO] Deploying app container →
+    Pulling image: user/app-reflex:latest
+    latest: Pulling from user/app-reflex
+    000a0aa0000a: Pull complete
+    0000000a00a0: Pull complete
+    00a0a000a000: Pull complete
+    0a000aa0a000: Pull complete
+    aaaa0a00a000: Pull complete
+    00aaa000a00a: Pull complete
+    000a00a00000: Pull complete
+    aaa8000a0000: Pull complete
+    00a0aa00a000: Pull complete
+    Digest: sha256:0a00a000aa0a0a000a00aa0a00a0aaa000a000a0000aaa00000a0a0a00e000aa
+    Status: Downloaded newer image for user/app-reflex:latest
+    docker.io/user/app-reflex:latest
+    Removing existing container: app-container
+    Starting container: app-container
+    0a00a000aa0a0a000a00aa0a00a0aaa000a000a0000aaa00000a0a0a00e000aa
+    Frontend OK            ..
+    Container status:
+    CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS          PORTS                                                NAMES
+    a0aa00aaa00a   user/app-reflex:latest   "reflex run --env pr…"   31 seconds ago   Up 29 seconds   127.0.0.1:3000->3000/tcp, 127.0.0.1:8000->8000/tcp   app-container
+
+    [INFO] Deploy completed successfully.
+
+    [INFO] Quick smoke tests
+    % Total    % Received % Xferd  Average Speed Dload   Average Speed Upload    Time Total    Time Spent     Time Left    Current Speed
+    0 26005    0     0    0        0 0                   0                       --:--:--      --:--:--       --:--:--     0
+    HTTP/2 200
+    accept-ranges: bytes
+    alt-svc: h3=":443"; ma=2592000
+    content-disposition: inline; filename="index.html"
+    content-security-policy: default-src 'self'; img-src 'self' data: blob; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss:; frame-ancestors 'self'; upgrade-insecure-requests
+    content-type: text/html; charset=utf-8
+    date: Fri, 29 Aug 2025 20:51:06 GMT
+    etag: "0aa000000a0aa00aaa000a000000aa000a0aaa00"
+    permissions-policy: geolocation=(), microphone=(), camera=()
+    referrer-policy: strict-origin-when-cross-origin
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preload" as="image" href="/code.svg">
+        <link rel="preload" as="image" href="/github.svg">
+        <link rel="preload" as="image" href="/linkedin.svg">
+        <link rel="preload" as="image" href="/1736345293938.jfif">
+        <title>Example User | App</title>
+        <meta property="og:image" content="favicon.ico">
+        <link rel="modulepreload" href="/assets/manifest-3569354a.js">
+        <link rel="modulepreload" href="/assets/entry.client-BQql8rut.js">
+        <link rel="modulepreload" href="/assets/index-mm3F5HB-.js">
+        <link rel="modulepreload" href="/assets/chunk-EF7DTUVF-DpzDECl8.js">
+        <link rel="modulepreload" href="/assets/root-l1SsWaCM.js">
+        <link rel="modulepreload" href="/assets/state-BmtbPhtG.js">
+        <link rel="modulepreload" href="/assets/createLucideIcon-DjFNdU7A.js">
+        <link rel="modulepreload" href="/assets/_index-2pl03fO0.js">
+        <script>
+            // Only run in browser environment, not during SSR
+            if (typeof document !== 'undefined') {
+                try {
+                    const theme = localStorage.getItem("theme") || "system";
+    curl: (23) Failure writing output to destination, passed 5930 returned 3457
+    % Total    % Received % Xferd  Average Speed Dload   Average Speed Upload    Time Total    Time Spent     Time Left    Current Speed
+    0 0        0 0        0        0 0                   0                       --:--:--      --:--:--       --:--:--     0
+    HTTP/2 302
+    alt-svc: h3=":443"; ma=2592000
+    location: https://example.com/
+    server: Caddy
+    date: Fri, 29 Aug 2025 20:51:07 GMT
+
+
+    [INFO] OK. Deployment complete.
